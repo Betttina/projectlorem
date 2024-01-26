@@ -3,6 +3,11 @@
 
 <footer>
 
+    <div class="column">
+        <?php echo do_shortcode('[footer_logo]'); ?>
+    </div>
+
+
     <section class="container">
 
         <div class="column"><span class="category">Information</span>
@@ -26,8 +31,8 @@
             $menu = array(
                 'theme_location' => 'footer_contacts',
                 'menu_id' => 'footer_contacts',
-                'container' => 'nav-container',
-                'container_class' => "menu"
+                'container' => 'contact-container',
+                'container_class' => "contacts"
             );
 
             wp_nav_menu($menu);
@@ -43,7 +48,7 @@
             $menu = array(
                 'theme_location' => 'footer_social',
                 'menu_id' => 'footer_social',
-                'container' => 'nav-container',
+                'container' => 'social-container',
                 'container_class' => "social-media"
             );
 

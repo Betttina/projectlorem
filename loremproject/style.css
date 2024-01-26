@@ -103,3 +103,19 @@ footer section .column {
  footer .category {
      color: white;
  }
+
+ button.arrow {
+     width: 53px;
+     height: 53px;
+     flex-shrink: 0;
+ }
+ button.arrow.left {
+     background-color: #FFFFFF;
+     border-style: solid;
+     border-color: #F2F2F2;
+ }
+
+button.arrow.right {
+    border: 1px solid #F2F2F2;
+    background: #F9F9F9;
+}

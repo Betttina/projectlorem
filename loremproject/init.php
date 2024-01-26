@@ -16,6 +16,10 @@ function lorem_init(){
 
     $menu = array(
         'main_menu' => 'main_menu',
+        'footer_info' => 'footer_info',
+        'footer_contacts' => 'footer_contacts',
+        'footer_social' => 'footer_social'
+
 
     );
 
@@ -24,3 +28,22 @@ function lorem_init(){
 }
 
 add_action('after_setup_theme', 'lorem_init');
+
+
+
+
+function linkbutton_function( $attr, $content = null ) {
+
+    $attr = shortcode_atts(
+        array(
+            "color" => "green"
+        ),
+        $attr,
+        "linkbutton"
+    );
+
+    return '<button type="button" class="arrow left" >'.do_shortcode($content).'</button>';
+    
+}
+add_shortcode('linkbutton', 'linkbutton_function');
+
