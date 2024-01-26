@@ -35,7 +35,7 @@
 
 </header>
 
-<main>
+<main class="content">
 
 
 </main>
