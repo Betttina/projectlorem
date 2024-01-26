@@ -32,18 +32,20 @@ add_action('after_setup_theme', 'lorem_init');
 
 
 
+// shortcode for arrow buttons
+
 function linkbutton_function( $attr, $content = null ) {
 
     $attr = shortcode_atts(
         array(
-            "color" => "green"
+            "color" => "white"
         ),
         $attr,
         "linkbutton"
     );
 
-    return '<button type="button" class="arrow left" >'.do_shortcode($content).'</button>';
-    
+    $class = ( $attr['color'] === 'white' ) ? 'arrow left' : 'arrow right';
+
+    return '<button type="button" class="' . esc_attr( $class ) . '">' . do_shortcode( $content ) . '</button>';
 }
 add_shortcode('linkbutton', 'linkbutton_function');
-

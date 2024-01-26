@@ -37,8 +37,12 @@
 
 <main class="content">
 
+    <div class="column">
+        <?php echo do_shortcode('[hero_image]'); ?>
+    </div>
 
-</main>
+
+
 
 
 

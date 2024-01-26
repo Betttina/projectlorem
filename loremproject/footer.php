@@ -1,6 +1,6 @@
 
 
-
+</main>
 <footer>
 
     <div class="column">

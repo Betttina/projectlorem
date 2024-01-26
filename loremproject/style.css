@@ -110,9 +110,8 @@ footer section .column {
      flex-shrink: 0;
  }
  button.arrow.left {
-     background-color: #FFFFFF;
-     border-style: solid;
-     border-color: #F2F2F2;
+     border: 1px solid #F2F2F2;
+     background: #FFF;
  }
 
 button.arrow.right {
