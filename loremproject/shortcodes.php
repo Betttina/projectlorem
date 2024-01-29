@@ -45,4 +45,20 @@ add_shortcode('custom_heading', 'custom_heading_shortcode');
 
 
 
+/* ------Main focus section*/
+function loremproject_focus_column_shortcode($atts = [], $content = null) {
+    // Använd 'column' attributet för att bestämma kolumnnumret
+    $column_num = isset($atts['column']) ? $atts['column'] : '1';
+    $content = get_theme_mod("loremproject_focus_column_{$column_num}_content");
+
+    return '<div class="focus-column">' . wp_kses_post($content) . '</div>';
+}
+
+for ($i = 1; $i <= 4; $i++) {
+    add_shortcode("loremproject_focus_column_$i", function($atts, $content = null) use ($i) {
+        return loremproject_focus_column_shortcode(['column' => $i], $content);
+    });
+}
+
+
 

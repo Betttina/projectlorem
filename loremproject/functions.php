@@ -171,3 +171,27 @@ function about_image_shortcode($atts) {
 
 add_shortcode('about_image', 'about_image_shortcode');
 
+
+
+function loremproject_customize_register($wp_customize) {
+    // Lägg till en ny sektion i Customizer
+    $wp_customize->add_section('loremproject_focus_section', array(
+        'title'    => __('Main Focus Section', 'loremproject'),
+        'priority' => 30,
+    ));
+
+    // Lägg till inställningar och kontroller för varje kolumn
+    for ($i = 1; $i <= 4; $i++) { // Antag att du har 4 kolumner
+        $wp_customize->add_setting("loremproject_focus_column_{$i}_content", array(
+            'default'   => '',
+            'transport' => 'refresh',
+        ));
+
+        $wp_customize->add_control("loremproject_focus_column_{$i}_content", array(
+            'label'   => __("Column {$i} Content", 'loremproject'),
+            'section' => 'loremproject_focus_section',
+            'type'    => 'textarea',
+        ));
+    }
+}
+add_action('customize_register', 'loremproject_customize_register');
