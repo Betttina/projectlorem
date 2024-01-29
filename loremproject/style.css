@@ -320,9 +320,77 @@ div.about-section p {
 
 /* ----------- END OF MAIN FOCUS SECTION ----------- */
 
+.my-custom-button {
+    /* Dina specifika stilar för knappen */
+    width: 222px;
+    height: 71px;
+    flex-shrink: 0;
+    background-color: mediumpurple;
+
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    justify-content:center;
+    font-family: Roboto, sans-serif;
+    text-transform: uppercase;
+
+
+}
+
+/* View project-button*/
+.my-custom-button-1 {
+    position: absolute;
+    top: 897px;
+    left: 538px;
+    color: #0a0000;
+}
+
+.my-custom-button-2 {
+    /* Stilar för knapp 2 */
+    position: absolute;
+    bottom: 50px;
+    right: 100px;
+}
+
+
 
 
 /* ----------- OUR PROJECTS SECTION ----------- */
+.ourprojectstitle{
+    color: var(--Gray-4, #BDBDBD);
+    font-family: Roboto, sans-serif;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 64px;
+    margin-left:135px;
+    margin-top: 120px;
+}
+.our-projects {
+    width: 1170px;
+    margin: 0 auto; /* Centrerar sektionen */
+}
+
+.projects-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.first-row .project-image {
+    flex-basis: calc(50% - 15px); /* Bredd för bilder i första raden */
+}
+
+.second-row .project-image {
+    flex-basis: calc(33.333% - 20px); /* Bredd för bilder i andra raden */
+
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
 
 
@@ -331,7 +399,41 @@ div.about-section p {
 
 
 /* ----------- CONTACT US SECTION ----------- */
+/* Stil för kontaktformulär */
+.contact-form {
+    margin-top: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
+.contact-form input[type="text"],
+.contact-form input[type="email"] {
+    background: #F3F3F3;
+    width: 391px;
+    height: 46px;
+}
+
+.contact-form input[type="textarea"] {
+    background: #F3F3F3;
+    width: 391px;
+    height: 147px;
+}
+
+/* Stil för knappen */
+.contact-form button {
+    margin-top: 77px;
+    background-color: black;
+    color: white;
+    /* Ytterligare knappstilar här */
+}
+
+/* Stil för bilden */
+.contact-form img {
+    width: 749px;
+    height: 369px;
+}
+form { margin-left: 135px;}
 
 /* ----------- END OF CONTACT US SECTION ----------- */
 
@@ -370,6 +472,12 @@ footer ul li{
 
 footer .category {
     color: white;
+}
+
+.whitelogodiv {
+    width: 145px;
+    height: 94px;
+    flex-shrink: 0;
 }
 
 /* End of FOOTER */

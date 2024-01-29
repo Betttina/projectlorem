@@ -3,12 +3,16 @@
 </main>
 <footer>
 
-    <div class="column">
-        <?php echo do_shortcode('[footer_logo]'); ?>
-    </div>
+
 
 
     <section class="container">
+
+        <div class="column">
+            <div class="whitelogodiv">
+                <?php echo do_shortcode('[footer_logo]'); ?>
+            </div>
+        </div>
 
         <div class="column"><span class="category">Information</span>
             <?php

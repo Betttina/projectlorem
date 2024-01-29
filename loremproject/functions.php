@@ -27,7 +27,7 @@ function theme_customizer_settings_logo($wp_customize) {
 add_action('customize_register', 'theme_customizer_settings_logo');
 
 function footer_logo_shortcode() {
-    // get URL for logo from tematillval
+    // get URL for logo from customizer
     $image_url = get_theme_mod('theme_logo');
 
     // create HTML for logo
@@ -63,7 +63,7 @@ function theme_customizer_settings_hero($wp_customize) {
         'settings' => 'hero_image',
     )));
 
-    // Anpassningsalternativ för rubriken
+    // Edit heading for hero in customizer
     $wp_customize->add_setting('hero_heading', array(
         'default' => 'Project Lorum',
         'transport' => 'refresh',
@@ -75,7 +75,7 @@ function theme_customizer_settings_hero($wp_customize) {
         'type' => 'text',
     ));
 
-    // Anpassningsalternativ för knapptexten
+    // edit buttontext
     $wp_customize->add_setting('hero_button_text', array(
         'default' => 'View project →',
         'transport' => 'refresh',
@@ -93,7 +93,6 @@ function theme_customizer_settings_hero($wp_customize) {
 add_action('customize_register', 'theme_customizer_settings_hero');
 
 
-
 function custom_image_sizes() {
     add_image_size('custom_hero_size', 770, 829, true);
 }
@@ -102,18 +101,18 @@ add_action('after_setup_theme', 'custom_image_sizes');
 
 /* ---- ABOUT SECTION ------*/
 function about_section_customizer_settings($wp_customize) {
-    // Skapa en ny sektion för About-sektionen
+    // add section for about section in customizer
     $wp_customize->add_section('about_section', array(
         'title' => __('About Section', 'loremproject'),
         'priority' => 30,
     ));
 
-    // Lägg till inställningar för bilderna
+    // add settings for images
     $wp_customize->add_setting('about_image_1');
     $wp_customize->add_setting('about_image_2');
     $wp_customize->add_setting('about_image_3');
 
-    // Lägg till kontroller för bildvalen
+    // add control
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'about_image_1', array(
         'label' => __('About Image 1', 'loremproject'),
         'section' => 'about_section',
@@ -133,65 +132,69 @@ function about_section_customizer_settings($wp_customize) {
 add_action('customize_register', 'about_section_customizer_settings');
 
 
-// Shortcode för About-sektionens grå div
-function about_section_shortcode($atts, $content = null) {
-    return '<div class="about-section">' . do_shortcode($content) . '</div>';
-}
-add_shortcode('about_section', 'about_section_shortcode');
 
-// Shortcode för rubriken i About-sektionen
-function about_heading_shortcode($atts, $content = null) {
-    return '<h2 class="about-heading">' . esc_html($content) . '</h2>';
-}
-add_shortcode('about_heading', 'about_heading_shortcode');
-
-// Shortcode för texten i About-sektionen
-function about_text_shortcode($atts, $content = null) {
-    return '<p class="about-text">' . wpautop(esc_html($content)) . '</p>';
-}
-add_shortcode('about_text', 'about_text_shortcode');
-
-// Shortcode för bilderna i About-sektionen
-function about_image_shortcode($atts) {
-    $atts = shortcode_atts(array(
-        'id' => '',
-        'width' => '',
-        'height' => '',
-        'alt' => '',
-    ), $atts);
-
-    if (empty($atts['id'])) {
-        return ''; // Om ID inte är satt, returnera inget
-    }
-
-    $image_html = wp_get_attachment_image($atts['id'], array($atts['width'], $atts['height']), false, array('alt' => esc_attr($atts['alt'])));
-
-    return $image_html;
-}
-
-add_shortcode('about_image', 'about_image_shortcode');
 
 
 
 function loremproject_customize_register($wp_customize) {
-    // Lägg till en ny sektion i Customizer
-    $wp_customize->add_section('loremproject_focus_section', array(
-        'title'    => __('Main Focus Section', 'loremproject'),
+    // add section
+// Customizer add text-content in button
+    $wp_customize->add_section("loremproject_buttons_section", array(
+        'title'    => __('Anpassade Knappar', 'loremproject'),
         'priority' => 30,
     ));
 
-    // Lägg till inställningar och kontroller för varje kolumn
-    for ($i = 1; $i <= 4; $i++) { // Antag att du har 4 kolumner
-        $wp_customize->add_setting("loremproject_focus_column_{$i}_content", array(
+// Add settings for button 1.
+    $wp_customize->add_setting('lorem_button_1_text', array(
+        'default'   => 'Knapp 1',
+        'transport' => 'refresh',
+    ));
+
+// add control for button 1
+    $wp_customize->add_control('lorem_button_1_text', array(
+        'label'   => __('Text för Knapp 1', 'loremproject'),
+        'section' => 'loremproject_buttons_section',
+        'type'    => 'text',
+    ));
+
+
+
+// new section "Our Projects"
+    $wp_customize->add_section('mytheme_our_projects_section', array(
+        'title'    => __('Our Projects', 'mytheme'),
+        'priority' => 30,
+    ));
+
+// add settings for every image
+    for ($i = 1; $i <= 5; $i++) {
+        $wp_customize->add_setting("mytheme_our_projects_image_$i", array(
             'default'   => '',
             'transport' => 'refresh',
         ));
 
-        $wp_customize->add_control("loremproject_focus_column_{$i}_content", array(
-            'label'   => __("Column {$i} Content", 'loremproject'),
-            'section' => 'loremproject_focus_section',
-            'type'    => 'textarea',
+        $wp_customize->add_control(new WP_Customize_Image_Control(
+            $wp_customize,
+            "mytheme_our_projects_image_$i",
+            array(
+                'label'    => __("Bild $i", 'mytheme'),
+                'section'  => 'mytheme_our_projects_section',
+                'settings' => "mytheme_our_projects_image_$i",
+            )
         ));
     }
+
 }
+
 add_action('customize_register', 'loremproject_customize_register');
+
+
+
+
+
+
+
+
+
+
+
+
