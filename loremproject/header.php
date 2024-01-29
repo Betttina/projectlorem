@@ -37,20 +37,10 @@
 
 <main class="content">
 
-    <div class="column">
-        <?php echo do_shortcode('[hero_image]'); ?>
-    </div>
+    <!--<div class="column">
+        <?php /*echo do_shortcode('[hero_image]'); */?>
+    </div>-->
 
-<?php
-$image_url = 'http://wordpress.test/wp-content/uploads/2024/01/f2-1.png';
-$image_id = attachment_url_to_postid($image_url);
-
-if ($image_id) {
-    echo $image_id;// Du har nu bildens ID ($image_id) att använda i dina shortcodes eller andra funktioner.
-} else {
-    // Om ID inte hittades, gör något annat eller visa ett felmeddelande.
-}
-?>
 
 
 

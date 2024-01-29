@@ -1,6 +1,7 @@
 <?php
 
-
+require_once("settings.php");
+require_once("shortcodes.php");
 
 function loremproject_enqueue(){
     $theme_directory = get_template_directory_uri();

@@ -6,6 +6,7 @@ if (!defined('ABSPATH')) {
 }
 
 require_once(get_template_directory() . "/init.php");
+require_once(get_template_directory() . '/shortcodes.php');
 
 
 /* Upload logo in Appearance -> Customizer,  HOOK */
@@ -50,6 +51,7 @@ function theme_customizer_settings_hero($wp_customize) {
     $wp_customize->add_setting('hero_image', array(
         'default' => '',
         'transport' => 'refresh',
+        'type' => 'option',
     ));
 
     // kontroll för att hantera img
@@ -58,7 +60,32 @@ function theme_customizer_settings_hero($wp_customize) {
         'label' => __('Hero Image', 'loremproject'),
         // kopplar kontrollen till hero_section
         'section' => 'hero_section',
+        'settings' => 'hero_image',
     )));
+
+    // Anpassningsalternativ för rubriken
+    $wp_customize->add_setting('hero_heading', array(
+        'default' => 'Project Lorum',
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_control('hero_heading', array(
+        'label' => __('Hero Heading', 'loremproject'),
+        'section' => 'hero_section',
+        'type' => 'text',
+    ));
+
+    // Anpassningsalternativ för knapptexten
+    $wp_customize->add_setting('hero_button_text', array(
+        'default' => 'View project →',
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_control('hero_button_text', array(
+        'label' => __('Hero Button Text', 'loremproject'),
+        'section' => 'hero_section',
+        'type' => 'text',
+    ));
 }
 // action hook
 // händelse: customize_register (reggar anpassning&kontroller i customize-panelen)
@@ -66,17 +93,12 @@ function theme_customizer_settings_hero($wp_customize) {
 add_action('customize_register', 'theme_customizer_settings_hero');
 
 
-/* ---- hero img shortcode ---- */
-function hero_image_shortcode($atts) {
-    $hero_image = get_theme_mod('hero_image');
 
-    if (!empty($hero_image)) {
-        return '<img src="' . esc_url($hero_image) . '" alt="Hero Image" class="hero_image">';
-    } else {
-        return ''; // no img chosen.
-    }
+function custom_image_sizes() {
+    add_image_size('custom_hero_size', 770, 829, true);
 }
-add_shortcode('hero_image', 'hero_image_shortcode');
+add_action('after_setup_theme', 'custom_image_sizes');
+
 
 /* ---- ABOUT SECTION ------*/
 function about_section_customizer_settings($wp_customize) {
