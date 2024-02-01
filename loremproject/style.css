@@ -19,7 +19,7 @@ html {
 
 }
 body{
-    background-color: #d4f3de;
+    background-color: #FFF;;
     border-right: 1mm solid rgba(211, 220, 50, .6);
 
 }
@@ -29,7 +29,7 @@ header {
     height: 102px;
     width: 1440px;
     flex-shrink: 0;
-    border-bottom: 2px solid #1d6d9f;
+    /*border-bottom: 2px solid #1d6d9f;*/
     background-color: white;
     display: flex;
     align-items: center;
@@ -45,7 +45,7 @@ header .main-navigation ul {
     margin-left: 344px;
 }
 
-/* fixa denna */
+/* fixa denna , page markering, main ------------- */
 header .menu-item.active {
     border-top: 0.971px solid black;
     border-bottom: 0.971px solid black;
@@ -64,7 +64,7 @@ header .menu-items li a {
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 12px; /* 100% */
+    line-height: 12px;
     letter-spacing: 2px;
     text-transform: uppercase;
 
@@ -90,7 +90,7 @@ header .menu-items {
 }
 
 /* --------- HERO -------- */
-/* Styling för knapparna "←" och "→" */
+/* knapparna "←" och "→" */
 button.arrow {
     width: 53px;
     height: 53px;
@@ -107,14 +107,11 @@ button.arrow.right {
     margin-left: 23px;
 }
 
-
-/* Styling för hero-sektionen */
 .hero {
     display: flex;
-    padding:3px;
+    padding:3px; /* Fixa detta, kan bli fel*/
 }
 
-/* Styling för hero-bilden */
 .hero-img {
     width: 770px;
     height: 829px;
@@ -123,7 +120,7 @@ button.arrow.right {
     margin-bottom: 120px;
 }
 
-/* Styling för titeln "Project Lorum" i hero */
+/* heading "Project Lorum" in hero */
 .custom-heading {
     display: flex;
     align-items: flex-start;
@@ -160,6 +157,7 @@ button.arrow.right {
     line-height: 64px;
 }
 
+/* grey line in hero */
 .line {
     width: 271px;
     border-top: 1px solid var(--Gray-6);
@@ -170,11 +168,8 @@ button.arrow.right {
 
 .button-container {
     display: flex;
-
-
 }
 
-/* Styling för arrow buttons och linjen */
 .button-container {
     text-align: center;
     margin-top: 90px;
@@ -215,6 +210,7 @@ div.about-section {
     height: 435px;
     flex-shrink: 0;
     margin:  auto;
+    margin-bottom: 120px;
 
 }
 
@@ -224,9 +220,8 @@ div.about-section column:first-child {
 
 /* bilderna */
 div.about-section img {
-     /* Begränsa bildbredden till förälderens bredd */
-    height: auto; /* Behåll bildens proportioner */
-    margin-bottom: 20px; /* Lägg till ett avstånd mellan bilderna */
+    height: auto;
+    margin-bottom: 20px;
 }
 
 /* bild 1 */
@@ -321,7 +316,7 @@ div.about-section p {
 /* ----------- END OF MAIN FOCUS SECTION ----------- */
 
 .my-custom-button {
-    /* Dina specifika stilar för knappen */
+
     width: 222px;
     height: 71px;
     flex-shrink: 0;
@@ -333,6 +328,11 @@ div.about-section p {
     justify-content:center;
     font-family: Roboto, sans-serif;
     text-transform: uppercase;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12px; /* 100% */
+    letter-spacing: 2.4px;
 
 
 }

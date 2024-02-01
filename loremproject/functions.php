@@ -26,16 +26,7 @@ function theme_customizer_settings_logo($wp_customize) {
 }
 add_action('customize_register', 'theme_customizer_settings_logo');
 
-function footer_logo_shortcode() {
-    // get URL for logo from customizer
-    $image_url = get_theme_mod('theme_logo');
 
-    // create HTML for logo
-    $logo_html = '<img src="' . esc_url($image_url) . '" alt="Logga">';
-
-    return $logo_html;
-}
-add_shortcode('footer_logo', 'footer_logo_shortcode');
 
 
 /* --- Hero_img settings (customize) hook ---- */
@@ -54,9 +45,9 @@ function theme_customizer_settings_hero($wp_customize) {
         'type' => 'option',
     ));
 
-    // kontroll för att hantera img
+    // kontroll för att hantera hero img
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_image', array(
-        // beskrivande etikett
+        // set section name
         'label' => __('Hero Image', 'loremproject'),
         // kopplar kontrollen till hero_section
         'section' => 'hero_section',
@@ -75,7 +66,7 @@ function theme_customizer_settings_hero($wp_customize) {
         'type' => 'text',
     ));
 
-    // edit buttontext
+    // edit button-text
     $wp_customize->add_setting('hero_button_text', array(
         'default' => 'View project →',
         'transport' => 'refresh',
@@ -97,6 +88,7 @@ function custom_image_sizes() {
     add_image_size('custom_hero_size', 770, 829, true);
 }
 add_action('after_setup_theme', 'custom_image_sizes');
+
 
 
 /* ---- ABOUT SECTION ------*/
@@ -135,10 +127,10 @@ add_action('customize_register', 'about_section_customizer_settings');
 
 
 
-
+/* customizer knappar */
 function loremproject_customize_register($wp_customize) {
     // add section
-// Customizer add text-content in button
+    // Customizer add text-content in button
     $wp_customize->add_section("loremproject_buttons_section", array(
         'title'    => __('Anpassade Knappar', 'loremproject'),
         'priority' => 30,
@@ -160,25 +152,25 @@ function loremproject_customize_register($wp_customize) {
 
 
 // new section "Our Projects"
-    $wp_customize->add_section('mytheme_our_projects_section', array(
+    $wp_customize->add_section('lorem_our_projects_section', array(
         'title'    => __('Our Projects', 'mytheme'),
         'priority' => 30,
     ));
 
 // add settings for every image
     for ($i = 1; $i <= 5; $i++) {
-        $wp_customize->add_setting("mytheme_our_projects_image_$i", array(
+        $wp_customize->add_setting("lorem_our_projects_image_$i", array(
             'default'   => '',
             'transport' => 'refresh',
         ));
 
         $wp_customize->add_control(new WP_Customize_Image_Control(
             $wp_customize,
-            "mytheme_our_projects_image_$i",
+            "lorem_our_projects_image_$i",
             array(
                 'label'    => __("Bild $i", 'mytheme'),
-                'section'  => 'mytheme_our_projects_section',
-                'settings' => "mytheme_our_projects_image_$i",
+                'section'  => 'lorem_our_projects_section',
+                'settings' => "lorem_our_projects_image_$i",
             )
         ));
     }
