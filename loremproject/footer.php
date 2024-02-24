@@ -14,6 +14,7 @@
             </div>
         </div>
 
+        <div class="column-2">
         <div class="column"><span class="category">Information</span>
             <?php
             $menu = array(
@@ -26,44 +27,65 @@
             wp_nav_menu($menu);
             ?>
         </div>
+        </div>
 
 
-
-
+        <div class="column-3">
         <div class="column"><span class="category">Contacts</span>
-            <?php
-            $menu = array(
-                'theme_location' => 'footer_contacts',
-                'menu_id' => 'footer_contacts',
-                'container' => 'contact-container',
-                'container_class' => "contacts"
-            );
 
-            wp_nav_menu($menu);
-            ?>
+            <i class="far fa-light fa-location-dot"></i>
 
+            <?php if(!empty(get_option("address_street"))) : ?>
+                <div class="address_field">
+
+                    <p> <?= get_option("address_street"); ?> <br>
+                        <?= get_option("address_city"); ?>
+                        <?= get_option("address_zip"); ?> <br></p>
+                </div>
+
+                <div>
+                <p> <?= get_option("phone_number"); ?> </p>
+                </div>
+
+                <div>
+                    <p> <?= get_option("email_address"); ?> </p>
+                </div>
+            <?php endif;?>
+
+        </div>
         </div>
 
 
 
         <div class="column"><span class="category">Social media</span>
 
-            <?php
-            $menu = array(
-                'theme_location' => 'footer_social',
-                'menu_id' => 'footer_social',
-                'container' => 'social-container',
-                'container_class' => "social-media"
-            );
+            <div class="social-icons">
+                <?php
+                // Hämta sociala medie-länkar från temainställningarna
+                // define variables
+                $facebook_link = get_option('facebook_link');
+                $twitter_link = get_option('twitter_link');
+                $linkedin_link = get_option('linkedin_link');
+                $pinterest_link = get_option('pinterest_link');
 
-            wp_nav_menu($menu);
-            ?>
+                // Visa ikoner och länkar om de är inställda
+                if ($facebook_link) {
+                    echo '<a href="' . esc_url($facebook_link) . '" target="_blank"><i class="fab fa-facebook"></i></a>';
+                }
+                if ($twitter_link) {
+                    echo '<a href="' . esc_url($twitter_link) . '" target="_blank"><i class="fab fa-twitter"></i></a>';
+                }
+                if ($linkedin_link) {
+                    echo '<a href="' . esc_url($linkedin_link) . '" target="_blank"><i class="fa-brands fa-linkedin"></i></a>';
+                }
+                if ($pinterest_link) {
+                    echo '<a href="' . esc_url($pinterest_link) . '" target="_blank"><i class="fa-brands fa-pinterest-p"></i></a>';
+                }
 
-
-
+                ?>
+            </div>
 
         </div>
-
 
 
     </section>

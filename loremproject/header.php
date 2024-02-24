@@ -6,6 +6,7 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-UIsk3w0Y1fHj4WVPrGbtjYmLYn6TW8XtdaSOrk2Fv6EBKqLE6+v6p2K0BzC1yoHd" crossorigin="anonymous">
 
     <?php wp_head();?>
 </head>
