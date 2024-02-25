@@ -21,15 +21,12 @@ html {
 body{
     background-color: #FFF;;
     border-right: 1mm solid rgba(211, 220, 50, .6);
-
 }
 
 header {
-
     height: 102px;
     width: 1440px;
     flex-shrink: 0;
-    /*border-bottom: 2px solid #1d6d9f;*/
     background-color: white;
     display: flex;
     align-items: center;
@@ -67,7 +64,6 @@ header .menu-items li a {
     line-height: 12px;
     letter-spacing: 2px;
     text-transform: uppercase;
-
 }
 
 header .column-50 {
@@ -189,6 +185,10 @@ button.arrow.right {
     align-self: flex-end;
 }
 
+.column-line-buttom{
+
+
+}
 
 /* ----- End of Hero section */
 
@@ -198,6 +198,21 @@ button.arrow.right {
 
 
 /* -------- ABOUT SECTION ------------ */
+
+.wp-block-button {
+}
+
+.wp-block-button__link{
+    position:relative;
+    bottom:215px;
+    right:450px;
+    color:black;
+    background-color:white;
+    font-family:Roboto, Arial, Helvetica, sans-serif;
+
+}
+
+
 
 /* Styla den gråa div-en i About-sektionen */
 div.about-section {
@@ -451,13 +466,13 @@ footer {
 footer section {
     width: var(--content-width);
     height: auto;
-    background-color: #4d4844;
+    background-color: #333333;
     display: flex;
     justify-content:start;
 }
 
 .column{
-    margin:2rem;
+
     justify-content:start;
 
 }
@@ -528,6 +543,9 @@ ol,ul {
 .column-3{
     margin-right:8rem;
     margin-left:1rem;
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
 }
 
 .social-icons a {
@@ -539,3 +557,140 @@ ol,ul {
     padding-top:1rem;
 }
 /* End of FOOTER */
+
+.column-icons{
+    display:flex;
+    flex-direction:column;
+    width:50%;
+    padding-top:37px;
+    margin-right:10px;
+
+}
+.column-icons i {
+    margin-bottom:3rem;
+    color:white;
+}
+
+/*
+
+
+.input-field {
+    width: 300px;
+    height: 20px;
+    margin-bottom: 10px;
+    background-color: lightgray;
+    padding: 5px;
+    border: none;
+}
+
+.input-tall {
+    height: 80px; !* 4 times the standard height *!
+}
+
+.placeholder-red-star::placeholder {
+    color: red;
+}
+
+!* Extra styling to simulate raised star effect *!
+.placeholder-red-star::placeholder {
+    text-shadow: 0 0 0.5px red;
+}
+
+.input-field {
+    width: 300px;
+    height: 20px;
+    margin-bottom: 10px;
+    background-color: lightgray;
+    padding: 5px;
+    border: none;
+    color: black;
+}
+
+.input-tall {
+    height: 80px; !* 4 times the standard input field height *!
+}
+
+!* Style for the input placeholder *!
+.input-field::placeholder {
+    color: grey;
+}
+
+!* Additional styles for inputs that need a red star *!
+.input-field.red-star::placeholder:before {
+    content: '*';
+    color: red;
+}
+
+!* Adjusting vertical alignment of the red star *!
+.input-field.red-star::placeholder {
+    vertical-align: super;
+    font-size: smaller;
+}*/
+
+form {
+    position:relative;
+    bottom:35rem;
+
+}
+
+.input-field {
+    width: 450px;
+    height: 50px;
+    margin-bottom: 10px;
+    background-color: #F3F3F3;
+    padding: 5px;
+    border: none;
+    color: black;
+    /* Adding space for the red star */
+    padding-left: 10px;
+}
+
+.input-tall {
+    height: 200px; /* 4 times the standard input field height */
+}
+
+/* Style for the input placeholder */
+.input-field::placeholder {
+    color: #8D8D8D;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 25px;
+
+}
+
+/* Styles for the container to place the red star */
+.star-container {
+    position: relative;
+}
+
+/* Style for the red star */
+.star-container::before {
+    content: '*';
+    color: red;
+    position: absolute;
+    left: 5px; /* Adjust as needed */
+    top: 0; /* Adjust as needed */
+}
+
+.input-tall {
+    height: 80px; /* 4 times the height of the standard input */
+}
+
+.phone-image{
+    position:relative;
+    left:640px;
+}
+
+.send-email{
+    background-color: #333333;
+    width: 100px;
+    height: 50px;
+    color:white;
+    font-family: Roboto, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 25px;
+}

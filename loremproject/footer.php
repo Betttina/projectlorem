@@ -1,5 +1,25 @@
 
 
+<form>
+    <div class="input-wrapper">
+        <input type="text" class="input-field" placeholder="Name">
+    </div>
+    <div class="input-wrapper star-container">
+        <input type="text" class="input-field" placeholder="Phone Number">
+    </div>
+    <div class="input-wrapper star-container">
+        <input type="text" class="input-field" placeholder="E-mail">
+    </div>
+    <div class="input-wrapper">
+        <input type="text" class="input-field" placeholder="Interested In">
+    </div>
+    <div class="input-wrapper star-container">
+        <textarea class="input-field input-tall" placeholder="Message"></textarea>
+    </div>
+</form>
+
+
+
 </main>
 <footer>
 
@@ -30,10 +50,19 @@
         </div>
 
 
-        <div class="column-3">
-        <div class="column"><span class="category">Contacts</span>
 
-            <i class="far fa-light fa-location-dot"></i>
+
+        <div class="column-3">
+            <div class="column-icons">
+                <i class="fa-solid fa-location-dot"></i>
+                <i class="fa-solid fa-phone"></i>
+                <i class="fa-regular fa-envelope"></i>
+            </div>
+
+
+            <div class="column"><span class="category">Contacts</span>
+
+
 
             <?php if(!empty(get_option("address_street"))) : ?>
                 <div class="address_field">
@@ -52,8 +81,9 @@
                 </div>
             <?php endif;?>
 
+            </div>
         </div>
-        </div>
+
 
 
 
@@ -84,6 +114,8 @@
 
                 ?>
             </div>
+
+
 
         </div>
 
